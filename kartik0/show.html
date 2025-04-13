@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Shoes - FC BAYERN STORE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('10.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            text-align: center;
+        }
+
+        .product-image img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .product-info {
+            margin-top: 20px;
+        }
+
+        .product-info h2 {
+            color: #444;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #28a745;
+            margin: 10px 0;
+        }
+
+        .description {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a.back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="product-image">
+            <img src="shoes.jpg" alt="Sports Shoes">
+        </div>
+
+        <h1>Sports Shoes</h1>
+
+        <div class="product-info">
+            <h2>Price: <span class="price">$49.99</span></h2>
+            <p class="description">
+                These FC Bayern sports shoes are designed for comfort and performance. Ideal for running, training, or casual wear. Lightweight, durable, and stylish with non-slip grip soles.
+            </p>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <a href="welcome1.html" class="back-link">&larr; Back to Store</a>
+    </div>
+
+    <script>
+        function addToCart() {
+            alert("Sports Shoes added to cart!");
+            // Optional: Add cart logic here if using localStorage/sessionStorage or redirect to cart
+        }
+    </script>
+
+</body>
+</html>

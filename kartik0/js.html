@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC BAYERN STORE</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('10.jpg'); 
+  background-size: cover;
+  background-position: center; 
+}
+            
+
+        h1 {
+            color: rgb(251, 251, 252);
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            color: rgb(45, 180, 214);
+        }
+
+       
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 200px;
+            height: 200px;
+        }
+
+        
+        .products-table {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .products-table td {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .products-table img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .product {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            color: rgb(113, 170, 197);
+        }
+
+        .product p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: rgb(111, 205, 221);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #f5c3b4;
+        }
+
+        .categories-table {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .categories-table a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            transition: background-color 0.3s;
+        }
+
+        .categories-table a:hover {
+            background-color: rgb(250, 0, 0);
+            color: white;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin: 20px;
+        }
+
+     
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+           bottom: 0; 
+            width: 100%;
+        }
+ .nav-bar{
+    display: flex;
+    justify-content: space-around;
+
+    a:link {
+    color: rgb(255, 255, 255); 
+    text-decoration: none;
+    background-color: transparent; 
+}
+ }
+    </style>
+</head>
+<script>
+  // Initialize cart
+  let cart = [];
+  let total = 0;
+
+  // Function to add item to cart
+  function addToCart(name, price) {
+    cart.push({ name: name, price: price });
+    total += price;
+    updateCartDisplay();
+  }
+
+  // Function to update cart UI
+  function updateCartDisplay() {
+    const cartItems = document.getElementById("cart-items");
+    cartItems.innerHTML = ""; // Clear current cart
+
+    cart.forEach((item, index) => {
+      const itemDiv = document.createElement("div");
+      itemDiv.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+      cartItems.appendChild(itemDiv);
+    });
+
+    document.getElementById("cart-total").textContent = `Total: $${total.toFixed(2)}`;
+  }
+
+  // Attach addToCart to all buttons dynamically
+  document.querySelectorAll(".product button").forEach((button) => {
+    button.addEventListener("click", function () {
+      const product = this.closest(".product");
+      const name = product.querySelector("h3").textContent;
+      const price = parseFloat(product.querySelector("p").textContent.replace("Price: $", ""));
+      addToCart(name, price);
+    });
+  });
+
+  // Checkout button
+  document.getElementById("checkout-button").addEventListener("click", function () {
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+    } else {
+      alert("Thanks for your order! Total: $" + total.toFixed(2));
+    }
+  });
+</script>
+<body>
+   <img src="cart3.jpg" alt="cart" id="cart" style="cursor: pointer;" align="right" height="50" width="50">
+    <img src="fc.jpg" alt="sports1" align="left" height="120" width="120"><center>
+        <h1 style="color: #f1f1f1;">Welcome to the FC BAYERN STORE</h1></center>
+    <nav><div class="nav-bar">
+        <div><a href="welcome1.html">Home</a></div>
+        <div><a href="registertation.html">registertation</a></div>
+        <div><a href="About.html">About us</a></div>
+        <div><a href="contact.html">contact</a></div>
+        </div>
+    </nav> 
+
+    <div>
+        <h2>Featured Products</h2>
+        <table class="products-table">
+            <tr>
+                <td>
+                    <div class="product">
+                        <h3>Product 1: Sports Shoes</h3>
+                        <img src="shoes.jpg" alt="shoes">
+                        <p>Price: $49.99</p>
+                        <p>Description: Comfortable and durable sports shoes for all activities.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="product">
+                        <h3>Product 2: Fitness Tracker</h3>
+                        <img src="watch.jpg" alt="watch">
+                        <p>Price: $29.99</p>
+                        <p>Description: Track your fitness goals with this easy-to-use tracker.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="product">
+                        <h3>Product 3: Yoga Mat</h3>
+                        <img src="yoga.jpg" alt="yoga" >
+                        <p>Price: $10.99</p>
+                        <p>Description: Non-slip yoga mat for your workout sessions.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="product">
+                        <h3>Product 4: Water Bottle</h3>
+                        <img src="bottle.jpg" alt="bottle">
+                        <p>Price: $4.99</p>
+                        <p>Description: Stay hydrated with this reusable water bottle.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="product">
+                        <h3>Product 5: Running Shorts</h3>
+                        <img src="shorts.jpg" alt="shorts">
+                        <p>Price: $24.99</p>
+                        <p>Description: Lightweight and breathable running shorts.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="product">
+                        <h3>Product 6: Resistance Bands</h3>
+                        <img src="bands.jpg" alt="bands">
+                        <p>Price: $15.99</p>
+                        <p>Description: Versatile resistance bands for strength training.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="product">
+                        <h3>Product 7: Dumbbells</h3>
+                        <img src="dumbbells.jpg" alt="dumbbells">
+                        <p>Price: $39.99</p>
+                        <p>Description: Adjustable dumbbells for home workouts.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="product">
+                        <h3>Product 8: Sports Bag</h3>
+                        <img src="bag.jpg" alt="bag">
+                        <p>Price: $29.99</p>
+                        <p>Description: Spacious sports bag for all your gear.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="product">
+                        <h3>Product 9: Cycling Gloves</h3>
+                        <img src="gloves.jpg" alt="gloves">
+                        <p>Price: $19.99</p>
+                        <p>Description: Comfortable gloves for cycling enthusiasts.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="product">
+                        <h3>Product 10: Jump Rope</h3>
+                        <img src="jumprope.jpg" alt="jumprope">
+                        <p>Price: $9.99</p>
+                        <p>Description: Durable jump rope for cardio workouts.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="product">
+                        <h3>Product 11: Sports Headband</h3>
+                        <img src="headband.jpg" alt="headband">
+                        <p>Price: $6.99</p>
+                        <p>Description: Keep sweat away with this stylish headband.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="product">
+                        <h3>Product 12: Gym Towel</h3>
+                        <img src="towel.jpg" alt="towel">
+                        <p>Price: $12.99</p>
+                        <p>Description: Soft and absorbent towel for gym use.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+ <div>
+        <h2>Categories</h2>
+        <table class="categories-table">
+            <tr>
+                <td align="center"><a href="#">Back to Home</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="contact-section">
+        <a href="contact.html">contact us</a>
+        <p style="color: #f1f1f1;">Email: support@sportsstore.com</p>
+        <p style="color: #f1f1f1;">Phone: (123) 456-7890</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Sports Accessories Store</p>
+    </footer>
+   </body>
+</html>
